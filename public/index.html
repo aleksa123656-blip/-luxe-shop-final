@@ -1,0 +1,101 @@
+<!-- START OF FILE index.html (полностью заменить) -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxe Cosmetics - Премиальная косметика</title>
+    <link rel="stylesheet" href="styles.css?v=1.0.3"> 
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>✨ Luxe Cosmetics</h1>
+            <p><a href="#" id="delivery-link" style="color: white; text-decoration: none; border-bottom: 1px dashed white;">🚚 Доставка по всей России</a></p>
+            <a href="admin.html" id="admin-link" style="position: absolute; top: 10px; right: 10px; color: white; opacity: 0.3; font-size: 12px; text-decoration: none;">Admin</a>
+        </header>
+
+        <section class="welcome-section">
+            <!-- ⭐️⭐️⭐️ ВОЗВРАЩАЕМ БЛОК ДОСТАВКИ ⭐️⭐️⭐️ -->
+            <div id="delivery-info" class="delivery-info">
+                <h4>🚚 Способы доставки:</h4>
+                <div class="delivery-methods">
+                    <div class="delivery-method">
+                        <div class="delivery-icon">📦</div>
+                        <strong>Яндекс Доставка</strong>
+                        <div class="delivery-time">1-3 дня</div>
+                    </div>
+                    <div class="delivery-method">
+                        <div class="delivery-icon">📮</div>
+                        <strong>Почта России</strong>
+                        <div class="delivery-time">3-7 дней</div>
+                    </div>
+                </div>
+                <p class="delivery-note">* Стоимость доставки рассчитывается индивидуально менеджером</p>
+                <button onclick="closeDeliveryInfo()" class="close-delivery-btn">Закрыть</button>
+            </div>
+            <!-- ⭐️⭐️⭐️ КОНЕЦ БЛОКА ⭐️⭐️⭐️ -->
+
+            <h2 style="color: #333; margin-bottom: 20px;">✨ Добро пожаловать!</h2>
+            <div class="instructions-card">
+                <h3 style="color: #333; margin-bottom: 15px;">🛍️ Как сделать заказ:</h3>
+                <div class="instruction-item"><div class="instruction-number">1</div><div class="instruction-text">Выбирайте товары из каталога ниже</div></div>
+                <div class="instruction-item"><div class="instruction-number">2</div><div class="instruction-text">Нажимайте "В корзину" для добавления</div></div>
+                <div class="instruction-item"><div class="instruction-number">3</div><div class="instruction-text">Откройте корзину и оформите заказ</div></div>
+                <div class="instruction-item"><div class="instruction-number">4</div><div class="instruction-text">Наш менеджер свяжется с вами для подтверждения</div></div>
+            </div>
+            <div class="support-info">
+                <strong>📞 Служба поддержки:</strong> <a href="https://t.me/perlperpl" class="support-link">@perlperpl</a><br>
+                <strong>⏰ Время работы:</strong> 10:00 - 22:00
+            </div>
+        </section>
+
+        <section class="filters-section">
+            <div class="search-box"><input type="text" id="search-input" placeholder="🔍 Поиск товаров..."></div>
+            <div class="categories-filter">
+                <button class="category-btn active" data-category="all">Все товары</button>
+                <button class="category-btn" data-category="Уход за кожей">Уход за кожей</button>
+                <button class="category-btn" data-category="Макияж">Макияж</button>
+                <button class="category-btn" data-category="Парфюмерия">Парфюмерия</button>
+            </div>
+        </section>
+
+        <section class="products-section">
+            <h3>Наш каталог</h3> 
+            <div id="products-container" class="products-grid"></div>
+        </section>
+    </div>
+
+    <div class="cart-floating-btn" onclick="openCartModal()">🛒 <span id="cart-count">0</span></div>
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🛒 Ваша корзина</h2>
+                <span class="close" onclick="closeCartModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="cart-items"></div>
+                <div class="cart-total"><strong>Итого: <span id="cart-total-price">0</span> ₽</strong></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeCartModal()">Продолжить</button>
+                <button class="btn btn-primary" onclick="checkout()">Оформить заказ</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="app.js?v=1.0.3"></script>
+    
+    <!-- ⭐️⭐️⭐️ ВОЗВРАЩАЕМ СКРИПТ ДЛЯ ДОСТАВКИ ⭐️⭐️⭐️ -->
+    <script>
+        function showDeliveryInfo() { document.getElementById('delivery-info').style.display = 'block'; }
+        function closeDeliveryInfo() { document.getElementById('delivery-info').style.display = 'none'; }
+        document.getElementById('delivery-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            showDeliveryInfo();
+        });
+    </script>
+</body>
+</html>

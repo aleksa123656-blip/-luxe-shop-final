@@ -1,0 +1,209 @@
+/* --- START OF FILE styles.css --- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.welcome-section {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.instructions-card {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    border-left: 4px solid #667eea;
+}
+
+.instruction-item {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    gap: 15px; /* Добавляем отступ между элементами */
+}
+
+.instruction-number {
+    background: #667eea;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0; /* Запрещаем кружку сжиматься */
+}
+
+.instruction-text {
+    flex-grow: 1; /* Позволяем тексту занимать все доступное место */
+}
+
+.support-info {
+    background: #e3f2fd;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.filters-section {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+}
+
+.categories-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.category-btn {
+    padding: 10px 20px;
+    border: 2px solid #667eea;
+    background: white;
+    color: #667eea;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.category-btn.active, .category-btn:hover {
+    background: #667eea;
+    color: white;
+}
+
+.products-section h3 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 80px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column; /* Главное исправление для карточки */
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Заставляет этот блок растягиваться */
+}
+
+.product-name {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.product-description {
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+    line-height: 1.4;
+    flex-grow: 1; /* Занимает все свободное место, отодвигая кнопку вниз */
+}
+
+.product-price {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #2e7d32;
+    margin-bottom: 5px;
+}
+
+.product-category {
+    color: #666;
+    font-size: 0.8em;
+    margin-bottom: 15px;
+}
+
+.add-to-cart-btn {
+    width: 100%;
+    padding: 12px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: auto; /* Прижимает кнопку к низу */
+}
+
+/* Остальные стили без изменений */
+.cart-floating-btn, .orders-floating-btn{position:fixed;right:20px;background:#667eea;color:#fff;padding:15px 20px;border-radius:50px;cursor:pointer;box-shadow:0 5px 15px rgba(0,0,0,.3);z-index:1000;display:flex;align-items:center;gap:8px;font-weight:700}.cart-floating-btn{bottom:90px}.orders-floating-btn{bottom:20px}.modal{display:none;position:fixed;z-index:1001;left:0;top:0;width:100%;height:100%;background-color:rgba(0,0,0,.5)}.modal-content{background-color:#fff;margin:5% auto;padding:0;border-radius:15px;width:90%;max-width:500px}.modal-header{background:#667eea;color:#fff;padding:20px;border-radius:15px 15px 0 0;display:flex;justify-content:space-between;align-items:center}.close{color:#fff;font-size:28px;cursor:pointer}.modal-body{padding:20px;max-height:400px;overflow-y:auto}.modal-footer{padding:20px;border-top:1px solid #eee;display:flex;gap:10px;justify-content:flex-end}.cart-item{display:flex;justify-content:space-between;align-items:center;padding:15px 0;border-bottom:1px solid #eee}.cart-item-actions button{background:#667eea;color:#fff;border:none;border-radius:5px;width:30px;height:30px;cursor:pointer}.cart-total{text-align:right;font-size:1.2em;margin-top:20px;padding-top:20px;border-top:2px solid #667eea}.empty-cart{text-align:center;color:#666;padding:40px 0}.btn{padding:10px 20px;border:none;border-radius:8px;cursor:pointer}.btn-primary{background:#667eea;color:#fff}.btn-secondary{background:#6c757d;color:#fff}.btn-danger{background:#dc3545;color:#fff}.delivery-info{background:#e3f2fd;padding:20px;border-radius:10px;margin:20px 0;display:none}.delivery-methods{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin:15px 0}.delivery-method{background:#fff;padding:15px;border-radius:8px;text-align:center}.delivery-icon{font-size:2em;margin-bottom:10px}.delivery-time{color:#666;font-size:.9em}.delivery-note{color:#666;font-style:italic;margin:10px 0}.close-delivery-btn{background:#667eea;color:#fff;border:none;padding:8px 16px;border-radius:5px;cursor:pointer}
