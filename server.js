@@ -1,5 +1,16 @@
 // --- START OF FILE server.js (ВЕРСИЯ ДЛЯ AMVERA) ---
+// --- 🚨 DEBUG START 🚨 ---
+console.log("🚀 ЗАПУСК С КРАШ-ТЕСТОМ...");
 
+process.on('uncaughtException', (err) => {
+    console.error('🔥 КРИТИЧЕСКАЯ ОШИБКА (uncaughtException):', err);
+    console.error(err.stack);
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+    console.error('🔥 ОШИБКА ПРОМИСА (unhandledRejection):', reason);
+});
+// --- 🚨 DEBUG END 🚨 ---
 import express from 'express';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
